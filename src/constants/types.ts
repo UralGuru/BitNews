@@ -8,10 +8,16 @@ export interface NewPost {
 
 export interface Theme {
     id: number,
-    name: string,
+    name: THEMES,
     mainColor: string,
     secondColor: string,
     title: string,
     textColor: string
+}
+
+export enum THEMES {
+    DARK='dark',
+    LIGHT='light',
+    BLUE='blue'
 }
 
