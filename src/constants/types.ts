@@ -25,3 +25,7 @@ export interface PropsThemeButton{
     title: THEMES
 }
 
+export interface GetNewsArgs {
+    page: number,
+    count: number
+}
