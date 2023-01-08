@@ -34,8 +34,6 @@ const newsSlice = createSlice({
         builder
             .addCase(getNewsThunk.fulfilled, (state, action) => {
                 state.newsItems = [state.newsItems, ...action.payload].filter(e => Object.keys(e).length  === 0 ? false : e)
-                // state.newsItems = [state.newsItems].filter(e => Object.keys(e).length  === 0 ? false : e).push(...action.payload)
-                // console.log(action.payload)
             })
             .addCase(getNewsThunk.rejected, (state, action) => {
                 console.error('Error in getNewsThunk')
