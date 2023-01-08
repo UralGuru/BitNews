@@ -1,4 +1,4 @@
-export interface NewPost {
+export interface NewsItem {
     title: string,
     content: string,
     id: number,
@@ -19,5 +19,9 @@ export enum THEMES {
     DARK='dark',
     LIGHT='light',
     BLUE='blue'
+}
+
+export interface PropsThemeButton{
+    title: THEMES
 }
 

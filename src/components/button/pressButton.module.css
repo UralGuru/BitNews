@@ -1,0 +1,25 @@
+.button{
+    width: 300px;
+    height: 30px;
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+    text-transform: uppercase;
+    border: 1px solid grey;
+    font-weight: 500;
+    border-radius: 10px;
+    user-select: none;
+}
+
+.button:hover{
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0;
+    color: white;
+}
+
+.button:active{
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0;
+    color: white;
+}
