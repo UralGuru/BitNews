@@ -4,17 +4,19 @@ import Theme from "./pages/theme/theme";
 import { Navbar } from "./components/navbar/navbar";
 import { Route, Routes } from "react-router-dom";
 import {URLManager} from "./shared/url-manager";
+import {Provider} from "react-redux";
+import store from "./store/store";
 
 
 function App() {
   return (
-    <React.Fragment>
+      <Provider store={store}>
         <Navbar />
         <Routes>
                 <Route path={URLManager.getHomeURL()} element={<Home />} />
                 <Route path={URLManager.getThemeURL()} element={<Theme />} />
         </Routes>
-    </React.Fragment>
+      </Provider>
   );
 }
 

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import NewsCard from "../../components/newsCard/newsCard";
 import styles from './home.module.css';
 import {NewsItem} from "../../constants/types";
+import {useAppDispatch, useAppSelector} from "../../shared/hooks";
+import {getNewsThunk} from "../../store/slices/newsSlices";
 
 const data: NewsItem[] = [
     // {
@@ -85,12 +87,20 @@ const data: NewsItem[] = [
 ]
 
 const Home = () => {
+
+    const dispatch = useAppDispatch();
+    const dataNews = useAppSelector((state) => state.news.newsItems)
+    const dataNewsArray: NewsItem[]  = Object.assign([], Object.values(dataNews))
+
+    useEffect(()=>{
+        dispatch(getNewsThunk())
+    }, [])
+
     return (
         <div className={styles.homePage}>
-            {data.map(news => <NewsCard key={news.id}
+            {dataNewsArray.map(news => <NewsCard key={news.id}
                                         id={news.id} content={news.content} createdAt={news.createdAt}
                                         title={news.title} updatedAt={news.updatedAt}/>)}
-
         </div>
     );
 };
