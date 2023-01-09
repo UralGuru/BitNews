@@ -40,7 +40,7 @@ const Home = () => {
     return (
         <div className={styles.homePage}>
 
-            {dataNewsArray.map(news => <NewsCard key={news.id}
+            {dataNewsArray.map(news => <NewsCard key={crypto.randomUUID()}
                                                  id={news.id}
                                                  title={news.title}
                                                  content={news.content}

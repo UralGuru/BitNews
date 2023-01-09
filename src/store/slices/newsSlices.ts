@@ -3,7 +3,7 @@ import PostService from '../../services/post.srvice';
 import {GetNewsArgs} from "../../constants/types";
 
 const INITIAL_STATE = {
-    newsItems: {},
+    newsItems: [],
     page: 1,
     count: 10,
     hasMore: true
@@ -33,7 +33,7 @@ const newsSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(getNewsThunk.fulfilled, (state, action) => {
-                state.newsItems = [state.newsItems, ...action.payload].filter(e => Object.keys(e).length  === 0 ? false : e)
+                state.newsItems.push(...action.payload as [])
             })
             .addCase(getNewsThunk.rejected, (state, action) => {
                 console.error('Error in getNewsThunk')
