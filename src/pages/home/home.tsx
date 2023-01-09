@@ -25,43 +25,43 @@ const Home = () => {
 
 
 
-    const handleScroll = () => {
-        if(window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight){
-            dispatch(incrementPage())
-            dispatch(getNewsThunk())
-        }
-
-    }
-
-    useEffect(()=>{
-        window.addEventListener('scroll',handleScroll)
-    },[])
+    // const handleScroll = () => {
+    //     if(window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight){
+    //         dispatch(incrementPage())
+    //         dispatch(getNewsThunk())
+    //     }
+    //
+    // }
+    //
+    // useEffect(()=>{
+    //     window.addEventListener('scroll',handleScroll)
+    // },[])
 
     return (
         <div className={styles.homePage}>
 
-            {dataNewsArray.map(news => <NewsCard key={crypto.randomUUID()}
-                                                 id={news.id}
-                                                 title={news.title}
-                                                 content={news.content}
-                                                 createdAt={news.createdAt}
-                                                 updatedAt={news.updatedAt}/>)}
-            {/*<InfiniteScroll*/}
-            {/*    dataLength={dataNewsArray.length}*/}
-            {/*    next={() => {*/}
-            {/*        dispatch(incrementPage())*/}
-            {/*        dispatch(getNewsThunk())*/}
-            {/*    }}*/}
-            {/*    hasMore={newsState.hasMore}*/}
-            {/*    loader={<h4>Loading...</h4>}*/}
-            {/*>*/}
-            {/*    {dataNewsArray.map(news => <NewsCard key={news.id}*/}
-            {/*                                         id={news.id}*/}
-            {/*                                         title={news.title}*/}
-            {/*                                         content={news.content}*/}
-            {/*                                         createdAt={news.createdAt}*/}
-            {/*                                         updatedAt={news.updatedAt}/>)}*/}
-            {/*</InfiniteScroll>*/}
+            {/*{dataNewsArray.map(news => <NewsCard key={crypto.randomUUID()}*/}
+            {/*                                     id={news.id}*/}
+            {/*                                     title={news.title}*/}
+            {/*                                     content={news.content}*/}
+            {/*                                     createdAt={news.createdAt}*/}
+            {/*                                     updatedAt={news.updatedAt}/>)}*/}
+            <InfiniteScroll
+                dataLength={dataNewsArray.length}
+                next={() => {
+                    dispatch(incrementPage())
+                    dispatch(getNewsThunk())
+                }}
+                hasMore={newsState.hasMore}
+                loader={<h4>Loading...</h4>}
+            >
+                {dataNewsArray.map(news => <NewsCard key={crypto.randomUUID()}
+                                                     id={news.id}
+                                                     title={news.title}
+                                                     content={news.content}
+                                                     createdAt={news.createdAt}
+                                                     updatedAt={news.updatedAt}/>)}
+            </InfiniteScroll>
         </div>
     );
 };
