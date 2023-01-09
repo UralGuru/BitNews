@@ -1,5 +1,6 @@
 import axios from 'axios';
-import {Theme, THEMES} from "../constants/types";
+import { Theme } from '../constants/types';
+
 
 const instance = axios.create({
     baseURL: 'https://frontappapi.dock7.66bit.ru/api/',
@@ -15,4 +16,3 @@ const ThemeService = {
 };
 
 export default ThemeService;
-

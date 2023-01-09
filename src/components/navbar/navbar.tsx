@@ -1,8 +1,9 @@
-import React from "react";
+import React from 'react';
 import cn from 'classnames';
-import {useLocation, useNavigate} from "react-router-dom";
-import {URLManager} from "../../shared/url-manager";
-import styles from "./navbar.module.css";
+import { useLocation, useNavigate } from 'react-router-dom';
+import { URLManager } from '../../shared/url-manager';
+import styles from './navbar.module.css';
+
 
 export const Navbar = () => {
     const location = useLocation();
@@ -21,4 +22,3 @@ export const Navbar = () => {
         </div>
     )
 }
-

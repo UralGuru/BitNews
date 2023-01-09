@@ -1,15 +1,13 @@
-import React, {useEffect, useState} from 'react';
-import NewsCard from "../../components/newsCard/newsCard";
+import React, { useEffect } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { getNewsThunk, incrementPage } from '../../store/slices/newsSlices';
+import { useAppDispatch, useAppSelector } from '../../shared/hooks';
+import NewsCard from '../../components/newsCard/newsCard';
+import { NewsItem } from '../../constants/types';
 import styles from './home.module.css';
-import {NewsItem} from "../../constants/types";
-import {useAppDispatch, useAppSelector} from "../../shared/hooks";
-import {getNewsThunk, incrementPage} from "../../store/slices/newsSlices";
-import InfiniteScroll from "react-infinite-scroll-component";
-import {useSelector} from "react-redux";
 
 
 const Home = () => {
-
     const dispatch = useAppDispatch();
     const theme = useAppSelector((state)=> state.theme)
     const newsState = useAppSelector((state) => state.news)
@@ -23,29 +21,8 @@ const Home = () => {
         document.body.style.backgroundColor = theme.mainColor
     },[theme.id])
 
-
-
-    // const handleScroll = () => {
-    //     if(window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight){
-    //         dispatch(incrementPage())
-    //         dispatch(getNewsThunk())
-    //     }
-    //
-    // }
-    //
-    // useEffect(()=>{
-    //     window.addEventListener('scroll',handleScroll)
-    // },[])
-
     return (
         <div className={styles.homePage}>
-
-            {/*{dataNewsArray.map(news => <NewsCard key={crypto.randomUUID()}*/}
-            {/*                                     id={news.id}*/}
-            {/*                                     title={news.title}*/}
-            {/*                                     content={news.content}*/}
-            {/*                                     createdAt={news.createdAt}*/}
-            {/*                                     updatedAt={news.updatedAt}/>)}*/}
             <InfiniteScroll
                 dataLength={dataNewsArray.length}
                 next={() => {

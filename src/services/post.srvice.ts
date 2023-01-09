@@ -1,5 +1,6 @@
 import axios from 'axios';
-import {GetNewsArgs, NewsItem} from "../constants/types";
+import { GetNewsArgs, NewsItem } from '../constants/types';
+
 
 const instance = axios.create({
     baseURL: 'https://frontappapi.dock7.66bit.ru/api/',
@@ -15,4 +16,3 @@ const PostService = {
 };
 
 export default PostService;
-

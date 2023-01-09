@@ -1,13 +1,8 @@
 import React from 'react';
-import styles from './newsCard.module.css'
-import {NewsItem} from "../../constants/types";
-import CSS from "csstype";
-import {useAppSelector} from "../../shared/hooks";
-
-const dateTranslate = (data: string) => {
-    const date = new Date(data);
-    return date.toLocaleDateString()
-}
+import CSS from 'csstype';
+import {useAppSelector} from '../../shared/hooks';
+import {NewsItem} from '../../constants/types';
+import styles from './newsCard.module.css';
 
 
 const NewsCard = (props: NewsItem) => {
@@ -32,3 +27,9 @@ const NewsCard = (props: NewsItem) => {
 };
 
 export default NewsCard;
+
+
+const dateTranslate = (data: string) => {
+    const date = new Date(data);
+    return date.toLocaleDateString()
+}

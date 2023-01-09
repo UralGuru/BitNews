@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
+import PressButton from '../../components/button/pressButton';
+import { useAppSelector } from '../../shared/hooks';
+import { THEMES } from '../../constants/types';
 import styles from './theme.module.css'
-import PressButton from "../../components/button/pressButton";
-import {THEMES} from "../../constants/types";
-import CSS from "csstype";
-import {useAppSelector} from "../../shared/hooks";
+
 
 const Theme = () => {
     const theme = useAppSelector((state)=> state.theme)
@@ -19,7 +19,6 @@ const Theme = () => {
                 <PressButton title={THEMES.LIGHT}/>
                 <PressButton title={THEMES.BLUE}/>
             </div>
-
         </div>
     );
 };

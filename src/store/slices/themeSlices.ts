@@ -1,7 +1,5 @@
-import {createAsyncThunk, createSlice, current} from '@reduxjs/toolkit';
-import PostService from '../../services/post.srvice';
-import {GetNewsArgs, THEMES} from "../../constants/types";
-import ThemeService from "../../services/theme.service";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import ThemeService from '../../services/theme.service';
 
 
 const localStorageTheme = JSON.parse(localStorage.getItem('theme') as string)

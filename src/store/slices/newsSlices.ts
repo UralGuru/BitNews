@@ -1,6 +1,6 @@
-import {createAsyncThunk, createSlice, current} from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import PostService from '../../services/post.srvice';
-import {GetNewsArgs} from "../../constants/types";
+
 
 const INITIAL_STATE = {
     newsItems: [],
