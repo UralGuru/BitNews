@@ -11,12 +11,18 @@ import {useSelector} from "react-redux";
 const Home = () => {
 
     const dispatch = useAppDispatch();
+    const theme = useAppSelector((state)=> state.theme)
     const newsState = useAppSelector((state) => state.news)
     const dataNewsArray: NewsItem[] = Object.assign([], Object.values(newsState.newsItems))
 
     useEffect(() => {
         dispatch(getNewsThunk())
     }, [])
+
+    useEffect(()=>{
+        document.body.style.backgroundColor = theme.mainColor
+    },[theme.id])
+
 
 
     const handleScroll = () => {
