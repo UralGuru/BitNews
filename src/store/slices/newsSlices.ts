@@ -38,6 +38,7 @@ const newsSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(getNewsThunk.fulfilled, (state, action) => {
+                if (action.payload.length === 0) state.hasMore=false
                 state.newsItems.push(...action.payload as [])
             })
             .addCase(getNewsThunk.rejected, (state, action) => {
