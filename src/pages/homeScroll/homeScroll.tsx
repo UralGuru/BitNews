@@ -16,12 +16,12 @@ const HomeScroll = () => {
 
     const onRefresh = () =>{
         return new Promise((resolve) => {
-            setTimeout(resolve, 2000);
-        }).then(()=> {
+            setTimeout(resolve, 200);
             dispatch(updateNews())
             dispatch(getNewsThunk())
-        });
+        })
     }
+
     useEffect(() => {
         dispatch(getNewsThunk())
     }, [])
@@ -42,7 +42,7 @@ const HomeScroll = () => {
                 backgroundColor={theme.mainColor}
             >
                 <div className={styles.basicContainer} id="basic-container">
-                    <div className={styles.basicLabel} id="basic-label">Обновить</div>
+                    <div className={styles.basicLabel} id="basic-label" onClick={onRefresh}>потяни🙃нажми </div>
                 </div>
                 <InfiniteScroll
                     dataLength={dataNewsArray.length}
