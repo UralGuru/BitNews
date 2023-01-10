@@ -42,7 +42,7 @@ const Home = () => {
                 backgroundColor={theme.mainColor}
             >
                 <div className={styles.basicContainer} id="basic-container">
-                    <div className={styles.basicLabel} id="basic-label" onClick={onRefresh}>потяни🙃нажми </div>
+                    <div className={styles.basicLabel} id="basic-label" onClick={onRefresh}>потяни🙃нажми</div>
                 </div>
                 <InfiniteScroll
                     dataLength={dataNewsArray.length}

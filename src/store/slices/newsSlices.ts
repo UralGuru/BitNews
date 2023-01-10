@@ -31,6 +31,7 @@ const newsSlice = createSlice({
         },
         updateNews: (state) => {
             state.newsItems = []
+            state.page = 1
         },
 
     },
