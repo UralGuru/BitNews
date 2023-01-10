@@ -1,8 +1,7 @@
 body {
   margin: 0;
   background-color: #232323;
-  font-family: 'Ink Free', sans-serif;
-  /*font-family: 'Roboto', sans-serif;*/
+  font-family: 'Calibri Light', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
