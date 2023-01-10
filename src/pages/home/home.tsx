@@ -53,7 +53,7 @@ const Home = () => {
                     hasMore={newsState.hasMore}
                     loader={<h4>Loading...</h4>}
                 >
-                    {dataNewsArray.map(news => <NewsCard key={crypto.randomUUID()}
+                    {dataNewsArray.map((news, index) => <NewsCard key={index}
                                                          id={news.id}
                                                          title={news.title}
                                                          content={news.content}
