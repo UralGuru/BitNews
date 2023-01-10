@@ -6,13 +6,14 @@ import { URLManager } from './shared/url-manager';
 import Theme from './pages/theme/theme';
 import Home from './pages/home/home';
 import store from './store/store';
+import HomeScroll from "./pages/homeScroll/homeScroll";
 
 
 function App() {
     return (
         <Provider store={store}>
             <Routes>
-                <Route path={URLManager.getHomeURL()} element={<Home/>}/>
+                <Route path={URLManager.getHomeURL()} element={<HomeScroll/>}/>
                 <Route path={URLManager.getThemeURL()} element={<Theme/>}/>
             </Routes>
             <Navbar/>
