@@ -3,23 +3,25 @@ import styles from './homeScroll.module.css';
 import {PullDownContent, PullToRefresh, RefreshContent, ReleaseContent} from "react-js-pull-to-refresh";
 import {useAppDispatch, useAppSelector} from "../../shared/hooks";
 import {NewsItem} from "../../constants/types";
-import {getNewsThunk, incrementPage} from "../../store/slices/newsSlices";
+import {getNewsThunk, incrementPage, updateNews} from "../../store/slices/newsSlices";
 import NewsCard from "../../components/newsCard/newsCard";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 
 const HomeScroll = () => {
-    const onRefresh = () =>{
-        return new Promise((resolve) => {
-            setTimeout(resolve, 2000);
-        }).then(e => console.log(123));
-    }
-
     const dispatch = useAppDispatch();
     const theme = useAppSelector((state)=> state.theme)
     const newsState = useAppSelector((state) => state.news)
     const dataNewsArray: NewsItem[] = Object.assign([], Object.values(newsState.newsItems))
 
+    const onRefresh = () =>{
+        return new Promise((resolve) => {
+            setTimeout(resolve, 2000);
+        }).then(()=> {
+            dispatch(updateNews())
+            dispatch(getNewsThunk())
+        });
+    }
     useEffect(() => {
         dispatch(getNewsThunk())
     }, [])

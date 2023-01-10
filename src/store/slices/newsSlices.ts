@@ -29,6 +29,10 @@ const newsSlice = createSlice({
         incrementPage: (state) => {
             state.page += 1;
         },
+        updateNews: (state) => {
+            state.newsItems = []
+        },
+
     },
     extraReducers: (builder) => {
         builder
@@ -41,5 +45,5 @@ const newsSlice = createSlice({
     },
 });
 
-export const { incrementPage } = newsSlice.actions;
+export const { incrementPage, updateNews } = newsSlice.actions;
 export default newsSlice.reducer;
